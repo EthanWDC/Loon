@@ -1,0 +1,31 @@
+#!name= 签到脚本运行控制
+#!desc= 建立单独开关及时间设置，分别控制每个脚本运行
+#!icon= https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/JavaScriptConverter.png
+
+[Argument]
+arg1 = switch,false,tag=运行 长泰签到
+time1 = input,"2 1,9 * * *",tag=长泰签到 运行时间
+arg2 = switch,false,tag=运行 车享家签到
+time2 = input,"4 1,9 * * *",tag=车享家签到 运行时间
+arg3 = switch,false,tag=运行 携程旅行签到
+time3 = input,"10 1,9 * * *",tag=携程旅行签到 运行时间
+arg4 = switch,false,tag=运行 吾爱破解签到
+time4 = input,"11 1,9 * * *",tag=吾爱破解签到 运行时间
+arg5 = switch,false,tag=运行 阿里云盘签到
+time5 = input,"12 1,9 * * *",tag=阿里云盘签到 运行时间
+arg6 = switch,false,tag=运行 盯盯拍每日签到
+time6 = input,"15 1,9 * * *",tag=盯盯拍每日签到 运行时间
+arg7 = switch,false,tag=运行 盯盯拍看视频8次
+time7 = input,"16-30/2 1,9 * * *",tag=盯盯拍看视频8次 运行时间
+arg8 = switch,false,tag=运行 途虎养车签到
+time8 = input,"13 1,9 * * *",tag=途虎养车签到 运行时间
+
+[script]
+cron {time1} script-path=chamtime_sign.js, timeout=10, tag=长泰签到, enable={arg1}
+cron {time2} script-path=chexiangjia.js, timeout=10, tag=车享家签到, enable={arg2}
+cron {time3} script-path=ctrip.js, timeout=10, tag=携程旅行签到, img-url=https://raw.githubusercontent.com/NobyDa/mini/master/Color/ctrip.png, enable={arg3}
+cron {time4} script-path=https://raw.githubusercontent.com/Yuheng0101/X/main/Tasks/52pojie.js, timeout=10, tag=吾爱破解签到, img-url=https://raw.githubusercontent.com/Yuheng0101/X/main/Assets/52pojie.png, enable={arg4}
+cron {time5} script-path=https://raw.githubusercontent.com/zqzess/rule_for_quantumultX/refs/heads/master/js/Mine/aDriveCheckIn/aDriveCheckIn.js, timeout=10, tag=阿里云盘签到, img-url=https://raw.githubusercontent.com/Softlyx/Fileball/main/YUAN/ALiYun.png, enable={arg5}
+cron {time6} script-path=ddpai_sign.js, timeout=10, tag=盯盯拍每日签到, enable={arg6}
+cron {time7} script-path=ddpai_watchvideo.js, timeout=10, tag=盯盯拍看视频8次, enable={arg7}
+cron {time8} script-path=https://raw.githubusercontent.com/FoKit/Scripts/main/scripts/tuhu.js, timeout=10, tag=途虎养车签到, enable={arg8}
